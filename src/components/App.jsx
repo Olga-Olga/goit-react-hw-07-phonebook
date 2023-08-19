@@ -39,6 +39,9 @@ export const App = () => {
 
 export const StyledDiv = styled.div`
   padding: 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const StyledTitle = styled.h2`

@@ -16,4 +16,7 @@ export const StyledInput = styled.input`
 
 export const StyledForm = styled.form`
   border: purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
