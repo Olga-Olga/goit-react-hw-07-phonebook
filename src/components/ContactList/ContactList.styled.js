@@ -12,7 +12,7 @@ export const StyledItem = styled.li`
   margin: 10px;
   padding: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  &: hover {
+  &:hover {
     transform: scale(1.05);
   }
 `;
@@ -25,6 +25,7 @@ export const StyleContact = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  background-color: ${({ theme }) => theme.colors.color1};
 `;
 
 export const SlyledDotSeperator = styled.div`

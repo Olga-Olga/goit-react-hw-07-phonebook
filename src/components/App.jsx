@@ -20,7 +20,6 @@ export const App = () => {
 
   return (
     <StyledDiv>
-      {load ? <h1>ofline</h1> : <h1>oonlice</h1>}
       <StyledTitle>
         Phonebook <FcSmartphoneTablet />
       </StyledTitle>
