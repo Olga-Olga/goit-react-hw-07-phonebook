@@ -3,9 +3,10 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/slice';
 import { StyledInput, StyledButton, StyledForm } from './ContactForm.styled';
+import { addContacts } from 'redux/operations';
 
 export const ContactsForm = () => {
-  const mylist = useSelector(state => state.contacts);
+  const mylist = useSelector(state => state.contacts.items);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -31,7 +32,7 @@ export const ContactsForm = () => {
       alert('need unique name');
       return;
     }
-    dispatch(addContact({ id: nanoid(), name, number }));
+    dispatch(addContacts({ id: nanoid(), name, number }));
   };
 
   return (

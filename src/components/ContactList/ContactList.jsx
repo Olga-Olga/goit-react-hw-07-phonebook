@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeContact } from 'redux/slice';
+import { removeContacts } from 'redux/operations';
 
 const ContactList = () => {
-  const mylist = useSelector(state => state.contacts);
+  const mylist = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ const ContactList = () => {
   };
 
   const onDelete = id => {
-    dispatch(removeContact(id));
+    dispatch(removeContacts(id));
   };
 
   return (
