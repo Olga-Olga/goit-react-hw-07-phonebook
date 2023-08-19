@@ -26,15 +26,24 @@ const contactSlice = createSlice({
   //   },
   // },
   extraReducers: builder => {
-    builder.addCase(fetchContacts.fulfilled, (state, action) => {
-      state.contacts.items = action.payload;
-    });
-    builder.addCase(removeContacts.fulfilled, (state, { payload }) => {
-      state.contacts.items.filter(contact => contact.id !== payload);
-    });
-    builder.addCase(addContacts.fulfilled, (state, { payload }) => {
-      state.contacts.items.push(payload);
-    });
+    builder
+      .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.contacts.items = action.payload;
+        state.loading = false;
+      })
+      .addCase(removeContacts.fulfilled, (state, { payload }) => {
+        state.contacts.items.filter(contact => contact.id !== payload);
+      })
+      .addCase(addContacts.fulfilled, (state, { payload }) => {
+        state.contacts.items.push(payload);
+      })
+      .addCase(fetchContacts.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(fetchContacts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 
