@@ -5,6 +5,7 @@ import Filter from './Filter/Filter';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
+import { FcSmartphoneTablet, FcFilledFilter, FcTodoList } from 'react-icons/fc';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -15,17 +16,29 @@ export const App = () => {
 
   return (
     <StyledDiv>
-      <h1>Phonebook</h1>
+      <StyledTitle>
+        Phonebook <FcSmartphoneTablet />
+      </StyledTitle>
       <ContactsForm />
-      <h2>Filter</h2>
+      <StyledTitle>
+        Filter
+        <FcFilledFilter />
+      </StyledTitle>
       <Filter />
-      <h2>Contacts</h2>
+      <StyledTitle>
+        Contacts <FcTodoList />
+      </StyledTitle>
       <ContactList />
     </StyledDiv>
   );
 };
 
 export const StyledDiv = styled.div`
-  margin: 0 auto;
   padding: 20px 80px;
+`;
+
+export const StyledTitle = styled.h2`
+  color: #6150f7;
+  -webkit-text-stroke: 0.2px white;
+  margin-bottom: 5px;
 `;

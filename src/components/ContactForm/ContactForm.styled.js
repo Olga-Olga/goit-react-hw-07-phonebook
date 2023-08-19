@@ -8,6 +8,9 @@ export const StyledButton = styled.button`
 
 export const StyledInput = styled.input`
   border-radius: 10px;
+  padding: 8px;
+  margin: 5px;
+  width: 250px;
 `;
 
 export const StyledForm = styled.form`

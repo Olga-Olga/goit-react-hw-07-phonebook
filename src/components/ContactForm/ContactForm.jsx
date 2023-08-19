@@ -37,21 +37,23 @@ export const ContactsForm = () => {
 
   return (
     <StyledForm onSubmit={handleFormSubmit}>
-      <div>Name</div>
+      {/* <div>Name</div> */}
       <StyledInput
         onChange={handleChangeInput}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         type="text"
         name="name"
+        placeholder="Enter name"
         value={name}
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-      <div>Number</div>
+      {/* <div>Number</div> */}
       <StyledInput
         onChange={handleChangeInput}
         type="tel"
         name="number"
+        placeholder="Enter number"
         value={number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

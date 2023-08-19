@@ -11,7 +11,11 @@ const Filter = ({ value, onChangeFilterValue }) => {
 
   return (
     <div>
-      <input onChange={onChangeFilterValue} value={value}></input>
+      <input
+        onChange={onChangeFilterValue}
+        value={value}
+        placeholder="Try to search"
+      ></input>
     </div>
   );
 };
