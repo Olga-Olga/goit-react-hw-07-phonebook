@@ -3,12 +3,16 @@ import ContactList from './ContactList/ContactList';
 import { ContactsForm } from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { FcSmartphoneTablet, FcFilledFilter, FcTodoList } from 'react-icons/fc';
+import { selectIsLoading } from 'redux/selector';
 
 export const App = () => {
   const dispatch = useDispatch();
+
+  const load = useSelector(selectIsLoading);
+  console.log(load);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -16,6 +20,7 @@ export const App = () => {
 
   return (
     <StyledDiv>
+      {load ? <h1>ofline</h1> : <h1>oonlice</h1>}
       <StyledTitle>
         Phonebook <FcSmartphoneTablet />
       </StyledTitle>
@@ -28,7 +33,7 @@ export const App = () => {
       <StyledTitle>
         Contacts <FcTodoList />
       </StyledTitle>
-      <ContactList />
+      {!load ? <ContactList /> : <h1>Loading...</h1>}
     </StyledDiv>
   );
 };

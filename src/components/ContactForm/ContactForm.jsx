@@ -40,7 +40,7 @@ export const ContactsForm = () => {
       {/* <div>Name</div> */}
       <StyledInput
         onChange={handleChangeInput}
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         type="text"
         name="name"
         placeholder="Enter name"
@@ -55,7 +55,7 @@ export const ContactsForm = () => {
         name="number"
         placeholder="Enter number"
         value={number}
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+        // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />

@@ -9,7 +9,6 @@ export const fetchContacts = createAsyncThunk(
     try {
       // dispatch(loading(true));
       const res = await axios.get('/contacts');
-      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -20,14 +19,23 @@ export const fetchContacts = createAsyncThunk(
 export const removeContacts = createAsyncThunk(
   'removeContacts',
   async (id, thunkAPI) => {
+    console.log(thunkAPI);
     try {
       const res = await axios.delete(`/contacts/${id}`);
-      console.log(res.data);
+      console.log('removeContacts', res.data);
       return res.data.id;
       // return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const isLoading = getState().loading;
+      if (isLoading) {
+        return false;
+      }
+    },
   }
 );
 
@@ -36,7 +44,8 @@ export const addContacts = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const res = await axios.post('/contacts', user);
-      console.log(res.data);
+      console.log('addContacts', res.data);
+      // toast.success(`Contact ${res.data.name} has been added!`)
       return res.data;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -7,10 +7,11 @@ import {
   StyleContact,
   SlyledDotSeperator,
 } from './ContactList.styled';
+import { selectContacts, selectFilter } from 'redux/selector';
 
 const ContactList = () => {
-  const mylist = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.filter);
+  const mylist = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const filteredList = () => {
@@ -25,18 +26,22 @@ const ContactList = () => {
 
   return (
     <StyledBox>
-      {filteredList().map(el => (
-        <StyledItem key={el.id}>
-          <div>{el.name}</div>
-          <SlyledDotSeperator></SlyledDotSeperator>
-          <StyleContact>
-            <div> {el.phone} </div>
-            <button name="delete" onClick={() => onDelete(el.id)}>
-              Delete
-            </button>
-          </StyleContact>
-        </StyledItem>
-      ))}
+      {filteredList().length ? (
+        filteredList().map(el => (
+          <StyledItem key={el.id}>
+            <div>{el.name}</div>
+            <SlyledDotSeperator></SlyledDotSeperator>
+            <StyleContact>
+              <div> {el.phone} </div>
+              <button name="delete" onClick={() => onDelete(el.id)}>
+                Delete
+              </button>
+            </StyleContact>
+          </StyledItem>
+        ))
+      ) : (
+        <h2>Empty list</h2>
+      )}
     </StyledBox>
   );
 };
