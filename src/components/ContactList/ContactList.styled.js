@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const StyledBox = styled.div`
   border-radius: 5px;
-  width: 300px;
+  min-width: 300px;
 `;
 
 export const StyledItem = styled.li`
@@ -19,4 +19,17 @@ export const StyledItem = styled.li`
 
 export const StyledForm = styled.form`
   border: purple;
+`;
+
+export const StyleContact = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+`;
+
+export const SlyledDotSeperator = styled.div`
+  flex: 1;
+  height: 1px;
+  background-color: grey;
+  margin-top: 20px;
 `;
