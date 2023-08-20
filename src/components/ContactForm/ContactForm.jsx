@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -35,7 +35,7 @@ export const ContactsForm = () => {
       });
       return;
     }
-    dispatch(addContacts({ id: nanoid(), name, number }));
+    dispatch(addContacts({ name, number }));
   };
 
   return (
