@@ -36,6 +36,8 @@ export const ContactsForm = () => {
       return;
     }
     dispatch(addContacts({ name, number }));
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -62,9 +64,8 @@ export const ContactsForm = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <StyledButton>
-        Add contact <ToastContainer />
-      </StyledButton>
+      <StyledButton>Add contact</StyledButton>
+      <ToastContainer />
     </StyledForm>
   );
 };
