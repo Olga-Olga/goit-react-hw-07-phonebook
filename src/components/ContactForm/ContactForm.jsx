@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addContact } from 'redux/slice';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { StyledInput, StyledButton, StyledForm } from './ContactForm.styled';
 import { addContacts } from 'redux/operations';
 
@@ -29,7 +30,9 @@ export const ContactsForm = () => {
   const handleFormSubmit = event => {
     event.preventDefault();
     if (mylist.some(el => el.name === name)) {
-      alert('need unique name');
+      toast.warn('Contact already exist in the list!', {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return;
     }
     dispatch(addContacts({ id: nanoid(), name, number }));
@@ -59,7 +62,9 @@ export const ContactsForm = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <StyledButton>Add contact</StyledButton>
+      <StyledButton>
+        Add contact <ToastContainer />
+      </StyledButton>
     </StyledForm>
   );
 };
