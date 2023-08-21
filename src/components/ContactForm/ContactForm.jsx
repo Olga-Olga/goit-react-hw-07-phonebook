@@ -36,8 +36,8 @@ export const ContactsForm = () => {
       return;
     }
     dispatch(addContacts({ name, number }));
-    setName('');
-    setNumber('');
+    // setName('');
+    // setNumber('');
   };
 
   return (

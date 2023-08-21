@@ -70,7 +70,7 @@ export const addContacts = createAsyncThunk(
   },
   {
     condition: (_, { getState }) => {
-      const isLoading = getState().loading;
+      const isLoading = getState().contacts.isLoading;
       if (isLoading) {
         return false;
       }

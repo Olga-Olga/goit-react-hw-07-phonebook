@@ -29,7 +29,7 @@ const contactSlice = createSlice({
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.contacts.items = action.payload;
-        state.loading = false;
+        state.contacts.isLoading = false;
       })
       .addCase(removeContacts.fulfilled, (state, { payload }) => {
         state.contacts.items = state.contacts.items.filter(
